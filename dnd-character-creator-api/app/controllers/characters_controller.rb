@@ -1,5 +1,4 @@
 class CharactersController < ApplicationController
-  # before_action :set_character
 
   # GET /characters
   def index
@@ -24,6 +23,7 @@ class CharactersController < ApplicationController
       render json: @character, status: :created, location: @character
     else
       render json: @character.errors, status: :unprocessable_entity
+    end
   end
 
   # PATCH/PUT /characters/1
