@@ -29,7 +29,7 @@ class CharactersController < ApplicationController
   # PATCH/PUT /characters/1
   def update
     p "Character update route accessed"
-
+    set_character
     if @character.update(character_params)
       render json: @character
     else
@@ -40,6 +40,7 @@ class CharactersController < ApplicationController
   # DELETE /characters/1 -- returns character deleted
   def destroy
     p "Character destroy route accessed"
+    set_character
     render json: @character.destroy()
   end
 
@@ -55,6 +56,8 @@ class CharactersController < ApplicationController
     # params.permit!
     params.require(:character).permit(
       :name,
+      :race,
+      :character_class,
       :strength,
       :dexterity,
       :constitution,
