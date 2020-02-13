@@ -1,14 +1,27 @@
-import React from 'react';
-import CharacterList from '../CharacterList/CharacterList.js'
-import './App.css';
+import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-    <h1>DnD Creator</h1>
-      <CharacterList />
-    </div>
-  );
+import CharacterList from '../CharacterList/CharacterList.js'
+
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <Link to='/characters'>Home</Link>
+
+        <Switch>
+          <Route path='/characters'>
+            <CharacterList />
+          </Route>
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;

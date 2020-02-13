@@ -28,12 +28,3 @@ class CharacterCreate extends Component {
       .then(json => this.prepareData(json))
       .then(data => this.createCharacters(data));
   }
-
-  getAbility = () => {
-    const rolls = [];
-    for(let i = 0; i < 6; i++) {
-
-    }
-
-
-  }

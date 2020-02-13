@@ -33,7 +33,29 @@ class CharacterList extends Component {
     data.map((character, i) => {
       allCharacters.push(character);
     });
+
+    if(allCharacters.length < 12) {
+      for(let i = allCharacters.length; i < 12; i++) {
+        allCharacters.push(this.randomCharacter());
+      }
+    }
+
     this.setState({characters: allCharacters});
+  }
+
+  randomCharacter = () => {
+    const newCharacter = {
+      name: "random",
+      race: Math.floor(Math.random() * 10),
+      class: Math.floor(Math.random() * 11),
+      strength: 1,
+      dexterity: 1,
+      constitution: 1,
+      intelligence: 1,
+      wisdom: 1,
+      charisma: 1
+    };
+    return newCharacter;
   }
 
   render() {
