@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CharacterShow from '../CharacterShow/CharacterShow.js';
+import CharacterShow from './CharacterShow.js';
 import CreateCharacter from './CreateCharacter.js';
 
 

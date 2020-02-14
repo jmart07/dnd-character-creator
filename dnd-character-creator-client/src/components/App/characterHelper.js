@@ -1,5 +1,36 @@
 
+const getRaceName = (index) => {
+  switch (index) {
+    case 0: return "Dwarf";
+    case 1: return "Elf";
+    case 2: return "Halfling";
+    case 3: return "Human";
+    case 4: return "Dragonborn";
+    case 5: return "Gnome";
+    case 6: return "Half-Elf";
+    case 7: return "Half-Orc";
+    case 8: return "Tiefling";
+  }
+}
 
+const getClassName = (index) => {
+  switch (index) {
+    case 0: return "Barbarian"
+    case 1: return "Bard"
+    case 2: return "Cleric"
+    case 3: return "Druid"
+    case 4: return "Fighter"
+    case 5: return "Monk"
+    case 6: return "Paladin"
+    case 7: return "Ranger"
+    case 8: return "Rogue"
+    case 9: return "Sorcerer"
+    case 10: return "Warlock"
+    case 11: return "Wizard"
+  }
+}
+
+export { getRaceName, getClassName };
 
 
 
