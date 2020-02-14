@@ -48,14 +48,32 @@ class CharacterList extends Component {
       name: "random",
       race: Math.floor(Math.random() * 10),
       class: Math.floor(Math.random() * 11),
-      strength: 1,
-      dexterity: 1,
-      constitution: 1,
-      intelligence: 1,
-      wisdom: 1,
-      charisma: 1
     };
+
+
     return newCharacter;
+  }
+
+  getAbilities = () => {
+    const abilityChoices = [];
+
+    for(let i = 0; i < 6; i++) {
+      let ability = 0;
+      for(let i = 0; i < 4; i++) {
+        ability += Math.floor(Math.random * 6) + 1;
+      }
+      abilityChoices.push(ability);
+    }
+
+    console.log(abilityChoices);
+
+    // strength: 1,
+    // dexterity: 1,
+    // constitution: 1,
+    // intelligence: 1,
+    // wisdom: 1,
+    // charisma: 1
+
   }
 
   render() {
