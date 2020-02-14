@@ -1,40 +1,63 @@
+const races = [
+  "Dwarf",
+  "Elf",
+  "Halfling",
+  "Human",
+  "Dragonborn",
+  "Gnome",
+  "Half-Elf",
+  "Half-Orc",
+  "Tiefling"
+];
 
-const getRaceName = (index) => {
-  switch (index) {
-    case 0: return "Dwarf";
-    case 1: return "Elf";
-    case 2: return "Halfling";
-    case 3: return "Human";
-    case 4: return "Dragonborn";
-    case 5: return "Gnome";
-    case 6: return "Half-Elf";
-    case 7: return "Half-Orc";
-    case 8: return "Tiefling";
-  }
-}
+const charClasses = [
+  "Barbarian",
+  "Bard",
+  "Cleric",
+  "Druid",
+  "Fighter",
+  "Monk",
+  "Paladin",
+  "Ranger",
+  "Rogue",
+  "Sorcerer",
+   "Warlock",
+   "Wizard"
+];
 
-const getClassName = (index) => {
-  switch (index) {
-    case 0: return "Barbarian"
-    case 1: return "Bard"
-    case 2: return "Cleric"
-    case 3: return "Druid"
-    case 4: return "Fighter"
-    case 5: return "Monk"
-    case 6: return "Paladin"
-    case 7: return "Ranger"
-    case 8: return "Rogue"
-    case 9: return "Sorcerer"
-    case 10: return "Warlock"
-    case 11: return "Wizard"
-  }
-}
+export { races, charClasses };
 
-export { getRaceName, getClassName };
+// const getRaceName = (index) => {
+//   return
+//   // switch (index) {
+//   //   case 0: return "Dwarf";
+//   //   case 1: return "Elf";
+//   //   case 2: return "Halfling";
+//   //   case 3: return "Human";
+//   //   case 4: return "Dragonborn";
+//   //   case 5: return "Gnome";
+//   //   case 6: return "Half-Elf";
+//   //   case 7: return "Half-Orc";
+//   //   case 8: return "Tiefling";
+//   // }
+// }
 
-
-
-
+// const getClassName = (index) => {
+//   switch (index) {
+//     case 0: return "Barbarian"
+//     case 1: return "Bard"
+//     case 2: return "Cleric"
+//     case 3: return "Druid"
+//     case 4: return "Fighter"
+//     case 5: return "Monk"
+//     case 6: return "Paladin"
+//     case 7: return "Ranger"
+//     case 8: return "Rogue"
+//     case 9: return "Sorcerer"
+//     case 10: return "Warlock"
+//     case 11: return "Wizard"
+//   }
+// }
 
 // # Race.create([
 // #   { name: "Dwarf",      ability_buff: [0,0,2,0,0,0],    speed: 25, size: "Medium" },
