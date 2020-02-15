@@ -19,7 +19,7 @@ class CreateCharacter extends Component {
         name: newCharacter.name,
         race: newCharacter.race,
         character_class: newCharacter.charClass,
-        strength: newCharacter.strength,
+        strength: newCharacter.strength
         dexterity: newCharacter.dexterity,
         constitution: newCharacter.constitution,
         intelligence: newCharacter.intelligence,

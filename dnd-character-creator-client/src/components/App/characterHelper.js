@@ -25,6 +25,13 @@ const charClasses = [
    "Wizard"
 ];
 
+class Character {
+  constructor(name, race, charClass, abilities) {
+    this.name = "";
+    this.race  = race;
+    this.charClass = charClass;
+    this. abilities = abilities;
+  }
 // returns random value for single character ability using the same logic as specified in D&D Player's Handbook
 // roll four six-sided dice, sum three highest rolls (possible numbers 3 - 18)
 const getAbility = () => {
@@ -202,7 +209,7 @@ const updateCharacter = (race, charClass) => {
     console.log(`abilities finished: ${abilities}`);
     return abilities;
   }
-
+}
 
 export { races, charClasses, getAbility, getAbilities, updateCharacter };
 
