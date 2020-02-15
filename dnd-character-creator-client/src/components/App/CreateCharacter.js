@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import {races, charClasses} from "./characterHelper.js";
 
 class CreateCharacter extends Component {
   state = {
     name: "",
-    race: "",
-    charClass: ""
+    race: 0,
+    charClass: 0
   }
 
   handleSubmit = (event) => {
@@ -15,7 +16,7 @@ class CreateCharacter extends Component {
       body: JSON.stringify({
         name: this.state.name,
         race: this.state.race,
-        charClass: this.state.charClass
+        character_class: this.state.charClass
       }),
       method: "POST",
       headers: {
@@ -38,7 +39,9 @@ class CreateCharacter extends Component {
     const id = target.id
     const value = target.value
 
-    this.setState({ [id]: value})
+    console.log(`${id}, ${value}`);
+
+    this.setState({ [id]: value});
   }
 
   render() {
@@ -48,31 +51,31 @@ class CreateCharacter extends Component {
           <label>Name:</label>
           <input type="text" id="name" value={this.state.name} onChange={this.handleChange} />
           <label>Race:</label>
-          <select value={this.state.race} onChange={this.handleChange}>
-            <option value="dwarf">Dwarf</option>
-            <option value="elf">Elf</option>
-            <option value="halfling">Halfling</option>
-            <option value="human">Human</option>
-            <option value="dragonborn">Dragonborn</option>
-            <option value="gnome">Gnome</option>
-            <option value="half-elf">Half-Elf</option>
-            <option value="half-orc">Half-Orc</option>
-            <option value="tiefling">Tiefling</option>
+          <select id="race" value={this.state.race} onChange={this.handleChange}>
+            <option value="0">{ races[0] }</option>
+            <option value="1">{ races[1] }</option>
+            <option value="2">{ races[2] }</option>
+            <option value="3">{ races[3] }</option>
+            <option value="4">{ races[4] }</option>
+            <option value="5">{ races[5] }</option>
+            <option value="6">{ races[6] }</option>
+            <option value="7">{ races[7] }</option>
+            <option value="8">{ races[8] }</option>
           </select>
           <label>Class:</label>
-          <select value={this.state.charClass} onChange={this.handleChange}>
-            <option value="barbarian">Barbarian</option>
-            <option value="bard">Bard</option>
-            <option value="leric">Cleric</option>
-            <option value="druid">Druid</option>
-            <option value="fighter">Fighter</option>
-            <option value="monk">Monk</option>
-            <option value="paladin">Paladin</option>
-            <option value="ranger">Ranger</option>
-            <option value="rogue">Rogue</option>
-            <option value="sorcerer">Sorcerer</option>
-            <option value="warlock">Warlock</option>
-            <option value="wizard">Wizard</option>
+          <select id="charClass" value={this.state.charClass} onChange={this.handleChange}>
+            <option value="0">{ charClasses[0] }</option>
+            <option value="1">{ charClasses[1] }</option>
+            <option value="2">{ charClasses[2] }</option>
+            <option value="3">{ charClasses[3] }</option>
+            <option value="4">{ charClasses[4] }</option>
+            <option value="5">{ charClasses[5] }</option>
+            <option value="6">{ charClasses[6] }</option>
+            <option value="7">{ charClasses[7] }</option>
+            <option value="8">{ charClasses[8] }</option>
+            <option value="9">{ charClasses[9] }</option>
+            <option value="10">{ charClasses[10] }</option>
+            <option value="11">{ charClasses[11] }</option>
           </select>
           <input type="submit" value="Create New Character" />
         </form>
