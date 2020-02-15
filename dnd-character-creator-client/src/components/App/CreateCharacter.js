@@ -1,22 +1,30 @@
 import React, { Component } from "react";
-import {races, charClasses} from "./characterHelper.js";
+import {races, charClasses, updateCharacter} from "./characterHelper.js";
 
 class CreateCharacter extends Component {
   state = {
     name: "",
     race: 0,
-    charClass: 0
+    charClass: 0,
   }
 
   handleSubmit = (event) => {
-    // event.preventDefault();
-    console.log("handling submit: ${event}");
+    event.preventDefault();
+    console.log("handling submit");
+
+    const newCharacterAbilities = updateCharacter(this.state.race, this.state.charClass);
 
     fetch("http://localhost:3000/characters", {
       body: JSON.stringify({
-        name: this.state.name,
-        race: this.state.race,
-        character_class: this.state.charClass
+        name: newCharacter.name,
+        race: newCharacter.race,
+        character_class: newCharacter.charClass,
+        strength: newCharacter.strength,
+        dexterity: newCharacter.dexterity,
+        constitution: newCharacter.constitution,
+        intelligence: newCharacter.intelligence,
+        wisdom: newCharacter.wisdome,
+        charisma: newCharacter.charisma
       }),
       method: "POST",
       headers: {
@@ -38,8 +46,6 @@ class CreateCharacter extends Component {
     const target = event.target;
     const id = target.id
     const value = target.value
-
-    console.log(`${id}, ${value}`);
 
     this.setState({ [id]: value});
   }
