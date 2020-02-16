@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import {Character} from "./character.js";
+// import {Character} from "./character.js";
 
-class CharacterShow extends Component {
+class ShowCharacter extends Component {
   render() {
     return(
       <div className="character">
@@ -19,4 +19,4 @@ class CharacterShow extends Component {
   }
 }
 
-export default CharacterShow;
+export default ShowCharacter;

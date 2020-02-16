@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import {Character} from './character.js';
-import CharacterShow from './CharacterShow.js';
-import CreateCharacter from './CreateCharacter.js';
+import ShowCharacter from './ShowCharacter.js';
+import CreateUpdateCharacter from './CreateUpdateCharacter.js';
 
 class App extends Component {
   state = {
-    characters: []
+    characters: [],
+    editMode: false
   }
 
   componentDidMount() {
@@ -51,10 +52,10 @@ class App extends Component {
   render() {
     return(
       <div className="app">
-        <CreateCharacter />
+        <CreateUpdateCharacter />
         <div className="characters">
           {this.state.characters.map((character, i) => {
-            return <CharacterShow key={i} character={character}/>
+            return <ShowCharacter key={i} character={character} />
           })}
         </div>
       </div>

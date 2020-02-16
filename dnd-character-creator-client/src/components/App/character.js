@@ -1,10 +1,9 @@
 class Character {
-  constructor(name, race, charClass, abilities) {
+  constructor(name, race, charClass, abilities = {strength: 0, dexterity: 0, constitution: 0, intelligence: 0, wisdom: 0, charisma: 0}) {
     this.name = name;
     this.race  = race;
     this.charClass = charClass;
-    this.abilities = abilities; //object that holds six abilities. keys are the names of the abilities.
-
+    this.abilities = abilities;
     console.log(`Constructing a ${this.getRaceName()} ${this.getCharClassName()} named ${this.getName()}`);
   }
 
@@ -39,114 +38,114 @@ class Character {
     const abilityChoices = Character.generateRandomAbilities();
     console.log(`Ability roles: ${abilityChoices}`);
 
-    switch (this.charClass) {
+    switch (parseInt(this.getCharClassIndex())) {
       case 0: //barbarian
         console.log(`Barbarian-- strength and constitution`)
-        this.abilities.strength = abilityChoices.shift();
-        this.abilities.constitution = abilityChoices.shift();
-        this.abilities.dexterity = abilityChoices.shift();
-        this.abilities.charisma = abilityChoices.shift();
-        this.abilities.wisdom = abilityChoices.shift();
-        this.abilities.intelligence = abilityChoices.shift();
+        this.setStrength(abilityChoices.shift());
+        this.setConstitution(abilityChoices.shift());
+        this.setDexterity(abilityChoices.shift());
+        this.setCharisma(abilityChoices.shift());
+        this.setWisdom(abilityChoices.shift());
+        this.setIntelligence(abilityChoices.shift());
         break;
       case 1: //bard
         console.log(`Bard-- charisma and dexterity`);
-        this.abilities.strength = abilityChoices[5];
-        this.abilities.dexterity = abilityChoices[1];
-        this.abilities.constitution = abilityChoices[2];
-        this.abilities.intelligence = abilityChoices[4];
-        this.abilities.wisdom = abilityChoices[3];
-        this.abilities.charisma = abilityChoices[0];
+        this.setStrength(abilityChoices[5]);
+        this.setDexterity(abilityChoices[1]);
+        this.setConstitution(abilityChoices[2]);
+        this.setIntelligence(abilityChoices[4]);
+        this.setWisdom(abilityChoices[3]);
+        this.setCharisma(abilityChoices[0]);
         break;
       case 2: //cleric
         console.log(`Cleric-- wisdom and strength`);
-        this.abilities.strength = abilityChoices[1];
-        this.abilities.dexterity = abilityChoices[3];
-        this.abilities.constitution = abilityChoices[2];
-        this.abilities.intelligence = abilityChoices[5];
-        this.abilities.wisdom = abilityChoices[0];
-        this.abilities.charisma = abilityChoices[4];
+        this.setStrength(abilityChoices[1]);
+        this.setDexterity(abilityChoices[3]);
+        this.setConstitution(abilityChoices[2]);
+        this.setIntelligence(abilityChoices[5]);
+        this.setWisdom(abilityChoices[0]);
+        this.setCharisma(abilityChoices[4]);
         break;
       case 3: //druid
         console.log(`Druid-- wisdom and constitution`);
-        this.abilities.strength = abilityChoices[4];
-        this.abilities.dexterity = abilityChoices[5];
-        this.abilities.constitution = abilityChoices[1];
-        this.abilities.intelligence = abilityChoices[2];
-        this.abilities.wisdom = abilityChoices[0];
-        this.abilities.charisma = abilityChoices[3];
+        this.setStrength(abilityChoices[4]);
+        this.setDexterity(abilityChoices[5]);
+        this.setConstitution(abilityChoices[1]);
+        this.setIntelligence(abilityChoices[2]);
+        this.setWisdom(abilityChoices[0]);
+        this.setCharisma(abilityChoices[3]);
         break;
       case 4: //fighter
         console.log(`Fighter-- strength and constitution`);
-        this.abilities.strength = abilityChoices[0];
-        this.abilities.dexterity = abilityChoices[2];
-        this.abilities.constitution = abilityChoices[1];
-        this.abilities.intelligence = abilityChoices[3];
-        this.abilities.wisdom = abilityChoices[4];
-        this.abilities.charisma = abilityChoices[5];
+        this.setStrength(abilityChoices[0]);
+        this.setDexterity(abilityChoices[2]);
+        this.setConstitution(abilityChoices[1]);
+        this.setIntelligence(abilityChoices[3]);
+        this.setWisdom(abilityChoices[4]);
+        this.setCharisma(abilityChoices[5]);
         break;
       case 5: //monk
         console.log(`Monk-- dexterity and wisdom`);
-        this.abilities.strength = abilityChoices[3];
-        this.abilities.dexterity = abilityChoices[0];
-        this.abilities.constitution = abilityChoices[2];
-        this.abilities.intelligence = abilityChoices[5];
-        this.abilities.wisdom = abilityChoices[1];
-        this.abilities.charisma = abilityChoices[4];
+        this.setStrength(abilityChoices[3]);
+        this.setDexterity(abilityChoices[0]);
+        this.setConstitution(abilityChoices[2]);
+        this.setIntelligence(abilityChoices[5]);
+        this.setWisdom(abilityChoices[1]);
+        this.setCharisma(abilityChoices[4]);
         break;
       case 6: //paladin
         console.log(`Paladin-- strength and charisma`);
-        this.abilities.strength = abilityChoices[0];
-        this.abilities.dexterity = abilityChoices[3];
-        this.abilities.constitution = abilityChoices[2];
-        this.abilities.intelligence = abilityChoices[5];
-        this.abilities.wisdom = abilityChoices[4];
-        this.abilities.charisma = abilityChoices[1];
+        this.setStrength(abilityChoices[0]);
+        this.setDexterity(abilityChoices[3]);
+        this.setConstitution(abilityChoices[2]);
+        this.setIntelligence(abilityChoices[5]);
+        this.setWisdom(abilityChoices[4]);
+        this.setCharisma(abilityChoices[1]);
         break;
       case 7: //ranger
         console.log(`Ranger-- dexterity and wisdom`);
-        this.abilities.strength = abilityChoices[2];
-        this.abilities.dexterity = abilityChoices[0];
-        this.abilities.constitution = abilityChoices[3];
-        this.abilities.intelligence = abilityChoices[5];
-        this.abilities.wisdom = abilityChoices[1];
-        this.abilities.charisma = abilityChoices[4];
+        this.setStrength(abilityChoices[2]);
+        this.setDexterity(abilityChoices[0]);
+        this.setConstitution(abilityChoices[3]);
+        this.setIntelligence(abilityChoices[5]);
+        this.setWisdom(abilityChoices[1]);
+        this.setCharisma(abilityChoices[4]);
         break;
       case 8: //rogue
         console.log(`Rogue-- dexterity and intelligence`);
-        this.abilities.strength = abilityChoices[4];
-        this.abilities.dexterity = abilityChoices[0];
-        this.abilities.constitution = abilityChoices[3];
-        this.abilities.intelligence = abilityChoices[1];
-        this.abilities.wisdom = abilityChoices[5];
-        this.abilities.charisma = abilityChoices[2];
+        this.setStrength(abilityChoices[4]);
+        this.setDexterity(abilityChoices[0]);
+        this.setConstitution(abilityChoices[3]);
+        this.setIntelligence(abilityChoices[1]);
+        this.setWisdom(abilityChoices[5]);
+        this.setCharisma(abilityChoices[2]);
         break;
       case 9: //sorcerer
         console.log(`Sorcerer-- charisma and constitution`);
-        this.abilities.strength = abilityChoices[5];
-        this.abilities.dexterity = abilityChoices[3];
-        this.abilities.constitution = abilityChoices[1];
-        this.abilities.intelligence = abilityChoices[2];
-        this.abilities.wisdom = abilityChoices[4];
-        this.abilities.charisma = abilityChoices[0];
+        this.setStrength(abilityChoices[5]);
+        this.setDexterity(abilityChoices[3]);
+        this.setConstitution(abilityChoices[1]);
+        this.setIntelligence(abilityChoices[2]);
+        this.setWisdom(abilityChoices[4]);
+        this.setCharisma(abilityChoices[0]);
         break;
       case 10: //warlock
         console.log(`Warlock-- charisma and constitution`);
-        this.abilities.strength = abilityChoices[3];
-        this.abilities.dexterity = abilityChoices[2];
-        this.abilities.constitution = abilityChoices[1];
-        this.abilities.intelligence = abilityChoices[4];
-        this.abilities.wisdom = abilityChoices[5];
-        this.abilities.charisma = abilityChoices[0];
+        this.setStrength(abilityChoices[3]);
+        this.setDexterity(abilityChoices[2]);
+        this.setConstitution(abilityChoices[1]);
+        this.setIntelligence(abilityChoices[4]);
+        this.setWisdom(abilityChoices[5]);
+        this.setCharisma(abilityChoices[0]);
         break;
       case 11: //wizard
         console.log(`Wizard-- intelligence and constitution`);
-        this.abilities.strength = abilityChoices[5];
-        this.abilities.dexterity = abilityChoices[2];
-        this.abilities.constitution = abilityChoices[1];
-        this.abilities.intelligence = abilityChoices[0];
-        this.abilities.wisdom = abilityChoices[4];
-        this.abilities.charisma = abilityChoices[3];
+        this.setStrength(abilityChoices[5]);
+        this.setDexterity(abilityChoices[2]);
+        this.setConstitution(abilityChoices[1]);
+        this.setIntelligence(abilityChoices[0]);
+        this.setWisdom(abilityChoices[4]);
+        this.setCharisma(abilityChoices[3]);
         break;
     }
 
@@ -157,50 +156,50 @@ class Character {
     console.log(`Wisdom: ${this.getWisdom()}`);
     console.log(`Charisma: ${this.getCharisma()}`);
 
-    switch (this.race) {
+    switch (parseInt(this.getRaceIndex())) {
       case 0: //dwarf
         console.log(`Dwarf-- const +2`);
-        this.abilities.constitution += 2;
+        this.setConstitution(this.getConstitution() + 2);
         break;
       case 1: //elf
       console.log(`Elf-- dex +2`);
-        this.abilities.dexterity += 2;
+        this.setDexterity(this.getDexterity() + 2);
         break;
       case 2: //halfling
       console.log(`Halfling-- dex +2`);
-        this.abilities.dexterity += 2;
+        this.setDexterity(this.getDexterity() + 2);
         break;
       case 3: //human
       console.log(`Human-- all +1`);
-        this.abilities.strength += 1;
-        this.abilities.dexterity += 1;
-        this.abilities.constitution += 1;
-        this.abilities.intelligence += 1;
-        this.abilities.wisdom += 1;
-        this.abilities.charisma += 1;
+        this.setStrength(this.getStrength() + 1);
+        this.setDexterity(this.getDexterity() + 1);
+        this.setConstitution(this.getConstitution() + 1);
+        this.setIntelligence(this.getIntelligence() + 1);
+        this.setWisdom(this.getWisdom() + 1);
+        this.setCharisma(this.getCharisma() + 1);
         break;
       case 4: //dragonborn
       console.log(`Dragonborn-- str +2, char +1`);
-        this.abilities.strength += 2;
-        this.abilities.charisma += 1;
+        this.setStrength(this.getStrength() + 2);
+        this.setCharisma(this.getCharisma() + 1);
         break;
       case 5: //gnome
       console.log(`Gnome-- int +2`);
-        this.abilities.intelligence += 2;
+        this.setIntelligence(this.getIntelligence() + 2);
         break;
       case 6: //half-elf
       console.log(`Half-elf-- char +2`);
-        this.abilities.charisma += 2;
+        this.setCharisma(this.getCharisma() + 2);
         break;
       case 7: //half-orc
       console.log(`Half-orc-- str +2, const +1`);
-        this.abilities.strength += 2;
-        this.abilities.constitution += 1;
+        this.setStrength(this.getStrength() + 2);
+        this.setConstitution(this.getConstitution() + 1);
         break;
       case 8: //tiefling
       console.log(`Tiefling-- int +1, char +2`);
-        this.abilities.intelligence += 1;
-        this.abilities.charisma += 2;
+        this.setIntelligence(this.getIntelligence() + 1);
+        this.setCharisma(this.getCharisma() + 2);
         break;
     }
 

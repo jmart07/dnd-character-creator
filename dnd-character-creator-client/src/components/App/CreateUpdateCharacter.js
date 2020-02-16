@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {Character} from "./character.js";
 
-class CreateCharacter extends Component {
+class CreateUpdateCharacter extends Component {
   state = {
     name: "",
     race: 0,
@@ -10,10 +10,12 @@ class CreateCharacter extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("handling submit");
+    console.log("Creating new character");
 
-    const newCharacter = new Character(this.state.name, this.state.race, this.state.charClass, []);
+    const newCharacter = new Character(this.state.name, this.state.race, this.state.charClass);
     newCharacter.updateAbilities();
+
+    console.log(newCharacter);
 
     fetch("http://localhost:3000/characters", {
       body: JSON.stringify({
@@ -91,4 +93,4 @@ class CreateCharacter extends Component {
   }
 }
 
-export default CreateCharacter;
+export default CreateUpdateCharacter;
