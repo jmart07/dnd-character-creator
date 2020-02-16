@@ -1,18 +1,11 @@
 class Character {
-  constructor(name, race, charClass) {
+  constructor(name, race, charClass, abilities) {
     this.name = name;
     this.race  = race;
     this.charClass = charClass;
-    this.abilities = {
-      strength: 0,
-      dexterity: 0,
-      constitution: 0,
-      intelligence: 0,
-      wisdom: 0,
-      charisma: 0
-    }
-    console.log(`Creating a ${this.getRaceName()} ${this.getCharClassName()} named ${this.getName()}`);
-    this.updateAbilities();
+    this.abilities = abilities;
+
+    console.log(`Constructing a ${this.getRaceName()} ${this.getCharClassName()} named ${this.getName()}`);
   }
 
 getName = () => {
@@ -277,7 +270,7 @@ updateAbilities = () => {
       this.abilities.charisma += 1;
       break;
     case 4: //dragonborn
-    console.log(`Dragonborn-- str +2, char +2`);
+    console.log(`Dragonborn-- str +2, char +1`);
       this.abilities.strength += 2;
       this.abilities.charisma += 1;
       break;
@@ -310,4 +303,4 @@ updateAbilities = () => {
   }
 }
 
-export default Character;
+export {Character};

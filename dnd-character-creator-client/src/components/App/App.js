@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import {Character} from './character.js';
 import CharacterShow from './CharacterShow.js';
-import CreateCharacter from './CreateCharacter.js';
+// import CreateCharacter from './CreateCharacter.js';
 
 class App extends Component {
   state = {
@@ -11,43 +12,46 @@ class App extends Component {
     this.getCharacters();
   }
 
+  //called on-mount, fetch from rails api postgresql database
   getCharacters = () => {
     fetch('http://localhost:3000/characters')
       .then(response => response.json())
       .then(json => this.prepareData(json))
-      .then(data => this.createCharacters(data));
+      .then(data => this.renderCharacters(data));
   }
-
+  //massages data from api to create new Character instance for each character, referenced in returned array
   prepareData = (data) => {
     console.log(data)
 
-    const charData = [];
+    const savedCharacters = [];
     data.forEach((character) => {
-      charData.push(character)
+      const savedChar = new Character(
+        character.name,
+        character.race,
+        character.character_class,
+        {
+          strength: character.strength,
+          dexterity: character.dexterity,
+          constitution: character.constitution,
+          intelligence: character.intelligence,
+          wisdom: character.wisdom,
+          charisma: character.charisma
+        });
+        savedCharacters.push(savedChar);
     });
 
-    return charData;
+    return savedCharacters;
   }
 
-  createCharacters = (data) => {
-    const allCharacters = [];
-    data.map((character, i) => {
-      allCharacters.push(character);
-    });
-
-    // if(allCharacters.length < 12) {
-    //   for(let i = allCharacters.length; i < 12; i++) {
-    //     allCharacters.push(this.randomCharacter());
-    //   }
-    // }
-
-    this.setState({characters: allCharacters});
+  //takes array of references to Character instances and sets to state
+  renderCharacters = (data) => {
+    this.setState({characters: data});
   }
 
   render() {
     return(
       <div className="app">
-        <CreateCharacter />
+        {/* <CreateCharacter /> */}
         <div className="characters">
           {this.state.characters.map((character, i) => {
             return <CharacterShow key={i} character={character}/>

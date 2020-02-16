@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {races, charClasses, updateCharacter} from "./characterHelper.js";
+import {Character} from "./character.js";
 
 class CreateCharacter extends Component {
   state = {
@@ -16,15 +16,15 @@ class CreateCharacter extends Component {
 
     fetch("http://localhost:3000/characters", {
       body: JSON.stringify({
-        name: newCharacter.name,
-        race: newCharacter.race,
-        character_class: newCharacter.charClass,
-        strength: newCharacter.strength
-        dexterity: newCharacter.dexterity,
-        constitution: newCharacter.constitution,
-        intelligence: newCharacter.intelligence,
-        wisdom: newCharacter.wisdome,
-        charisma: newCharacter.charisma
+        // name: newCharacter.name,
+        // race: newCharacter.race,
+        // character_class: newCharacter.charClass,
+        // strength: newCharacter.strength,
+        // dexterity: newCharacter.dexterity,
+        // constitution: newCharacter.constitution,
+        // intelligence: newCharacter.intelligence,
+        // wisdom: newCharacter.wisdome,
+        // charisma: newCharacter.charisma
       }),
       method: "POST",
       headers: {

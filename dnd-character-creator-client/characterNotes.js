@@ -277,7 +277,7 @@ updateAbilities = () => {
       this.abilities.charisma += 1;
       break;
     case 4: //dragonborn
-    console.log(`Dragonborn-- str +2, char +2`);
+    console.log(`Dragonborn-- str +2, char +1`);
       this.abilities.strength += 2;
       this.abilities.charisma += 1;
       break;
@@ -310,4 +310,4 @@ updateAbilities = () => {
   }
 }
 
-test = new Character("JOHN!", 3, 1);
+test = new Character("JOHN!", 8,12);
