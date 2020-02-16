@@ -12,19 +12,20 @@ class CreateCharacter extends Component {
     event.preventDefault();
     console.log("handling submit");
 
-    const newCharacterAbilities = updateCharacter(this.state.race, this.state.charClass);
+    const newCharacter = new Character(this.state.name, this.state.race, this.state.charClass, []);
+    newCharacter.updateAbilities();
 
     fetch("http://localhost:3000/characters", {
       body: JSON.stringify({
-        // name: newCharacter.name,
-        // race: newCharacter.race,
-        // character_class: newCharacter.charClass,
-        // strength: newCharacter.strength,
-        // dexterity: newCharacter.dexterity,
-        // constitution: newCharacter.constitution,
-        // intelligence: newCharacter.intelligence,
-        // wisdom: newCharacter.wisdome,
-        // charisma: newCharacter.charisma
+        name: newCharacter.getName(),
+        race: newCharacter.getRaceIndex(),
+        character_class: newCharacter.getCharClassIndex(),
+        strength: newCharacter.getStrength(),
+        dexterity: newCharacter.getDexterity(),
+        constitution: newCharacter.getConstitution(),
+        intelligence: newCharacter.getIntelligence(),
+        wisdom: newCharacter.getWisdom(),
+        charisma: newCharacter.getCharisma()
       }),
       method: "POST",
       headers: {
@@ -58,30 +59,30 @@ class CreateCharacter extends Component {
           <input type="text" id="name" value={this.state.name} onChange={this.handleChange} />
           <label>Race:</label>
           <select id="race" value={this.state.race} onChange={this.handleChange}>
-            <option value="0">{ races[0] }</option>
-            <option value="1">{ races[1] }</option>
-            <option value="2">{ races[2] }</option>
-            <option value="3">{ races[3] }</option>
-            <option value="4">{ races[4] }</option>
-            <option value="5">{ races[5] }</option>
-            <option value="6">{ races[6] }</option>
-            <option value="7">{ races[7] }</option>
-            <option value="8">{ races[8] }</option>
+            <option value="0">{ Character.getRaceByIndex(0) }</option>
+            <option value="1">{ Character.getRaceByIndex(1) }</option>
+            <option value="2">{ Character.getRaceByIndex(2) }</option>
+            <option value="3">{ Character.getRaceByIndex(3) }</option>
+            <option value="4">{ Character.getRaceByIndex(4) }</option>
+            <option value="5">{ Character.getRaceByIndex(5) }</option>
+            <option value="6">{ Character.getRaceByIndex(6) }</option>
+            <option value="7">{ Character.getRaceByIndex(7) }</option>
+            <option value="8">{ Character.getRaceByIndex(8) }</option>
           </select>
           <label>Class:</label>
           <select id="charClass" value={this.state.charClass} onChange={this.handleChange}>
-            <option value="0">{ charClasses[0] }</option>
-            <option value="1">{ charClasses[1] }</option>
-            <option value="2">{ charClasses[2] }</option>
-            <option value="3">{ charClasses[3] }</option>
-            <option value="4">{ charClasses[4] }</option>
-            <option value="5">{ charClasses[5] }</option>
-            <option value="6">{ charClasses[6] }</option>
-            <option value="7">{ charClasses[7] }</option>
-            <option value="8">{ charClasses[8] }</option>
-            <option value="9">{ charClasses[9] }</option>
-            <option value="10">{ charClasses[10] }</option>
-            <option value="11">{ charClasses[11] }</option>
+            <option value="0">{ Character.getCharClassByIndex(0) }</option>
+            <option value="1">{ Character.getCharClassByIndex(1) }</option>
+            <option value="2">{ Character.getCharClassByIndex(2) }</option>
+            <option value="3">{ Character.getCharClassByIndex(3) }</option>
+            <option value="4">{ Character.getCharClassByIndex(4) }</option>
+            <option value="5">{ Character.getCharClassByIndex(5) }</option>
+            <option value="6">{ Character.getCharClassByIndex(6) }</option>
+            <option value="7">{ Character.getCharClassByIndex(7) }</option>
+            <option value="8">{ Character.getCharClassByIndex(8) }</option>
+            <option value="9">{ Character.getCharClassByIndex(9) }</option>
+            <option value="10">{ Character.getCharClassByIndex(10) }</option>
+            <option value="11">{ Character.getCharClassByIndex(11) }</option>
           </select>
           <input type="submit" value="Create New Character" />
         </form>
