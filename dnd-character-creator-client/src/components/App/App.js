@@ -27,6 +27,7 @@ class App extends Component {
     const savedCharacters = [];
     data.forEach((character) => {
       const savedChar = new Character(
+        character.id,
         character.name,
         character.race,
         character.character_class,
@@ -52,7 +53,7 @@ class App extends Component {
   render() {
     return(
       <div className="app">
-        <CreateUpdateCharacter />
+        <CreateUpdateCharacter editMode={this.state.editMode}/>
         <div className="characters">
           {this.state.characters.map((character, i) => {
             return <ShowCharacter key={i} character={character} />

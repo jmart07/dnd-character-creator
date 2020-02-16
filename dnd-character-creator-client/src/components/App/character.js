@@ -1,5 +1,6 @@
 class Character {
-  constructor(name, race, charClass, abilities = {strength: 0, dexterity: 0, constitution: 0, intelligence: 0, wisdom: 0, charisma: 0}) {
+  constructor(id, name, race, charClass, abilities = {strength: 0, dexterity: 0, constitution: 0, intelligence: 0, wisdom: 0, charisma: 0}) {
+    this.id = id;
     this.name = name;
     this.race  = race;
     this.charClass = charClass;
@@ -8,6 +9,7 @@ class Character {
   }
 
   //Getters
+  getId = () => this.id;
   getName = () => this.name;
   getRaceIndex = () => this.race;
   getRaceName = () => Character.getRaceByIndex(this.race);

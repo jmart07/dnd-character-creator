@@ -12,7 +12,7 @@ class CreateUpdateCharacter extends Component {
     event.preventDefault();
     console.log("Creating new character");
 
-    const newCharacter = new Character(this.state.name, this.state.race, this.state.charClass);
+    const newCharacter = new Character(0, this.state.name, this.state.race, this.state.charClass);
     newCharacter.updateAbilities();
 
     console.log(newCharacter);

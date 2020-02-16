@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 p "Seeding database..."
-p "Creating characters..."
+# p "Creating characters..."
 
-Character.create([
-  { name: "DwarfBarb", race: 0, character_class: 0, strength: 0, dexterity: 0, constitution: 0, intelligence: 0, wisdom: 0, charisma: 0 },
-  { name: "ElfBard", race: 1, character_class: 1, strength: 1, dexterity: 1, constitution: 1, intelligence: 1, wisdom: 1, charisma: 1 },
-  { name: "HalflingCleric", race: 2, character_class: 2, strength: 2, dexterity: 2, constitution: 2, intelligence: 2, wisdom: 2, charisma: 2 }
-])
+# Character.create([
+#   { name: "DwarfBarb", race: 0, character_class: 0, strength: 0, dexterity: 0, constitution: 0, intelligence: 0, wisdom: 0, charisma: 0 },
+#   { name: "ElfBard", race: 1, character_class: 1, strength: 1, dexterity: 1, constitution: 1, intelligence: 1, wisdom: 1, charisma: 1 },
+#   { name: "HalflingCleric", race: 2, character_class: 2, strength: 2, dexterity: 2, constitution: 2, intelligence: 2, wisdom: 2, charisma: 2 }
+# ])
 
 p "Done seeding."
 

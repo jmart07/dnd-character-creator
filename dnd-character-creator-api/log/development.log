@@ -3942,3 +3942,562 @@ Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 1561)
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[36mCharacter Create (0.4ms)[0m  [1m[32mINSERT INTO "characters" ("name", "race", "character_class", "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "HalflingCleric"], ["race", 2], ["character_class", 2], ["strength", 2], ["dexterity", 2], ["constitution", 2], ["intelligence", 2], ["wisdom", 2], ["charisma", 2], ["created_at", "2020-02-16 21:37:51.642881"], ["updated_at", "2020-02-16 21:37:51.642881"]]
   [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (524.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "dnd_character_creator_api_development"[0m
+  [1m[35m (323.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "dnd_character_creator_api_test"[0m
+  [1m[35m (849.5ms)[0m  [1m[35mCREATE DATABASE "dnd_character_creator_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (844.4ms)[0m  [1m[35mCREATE DATABASE "dnd_character_creator_api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "characters" CASCADE[0m
+  [1m[35m (112.0ms)[0m  [1m[35mCREATE TABLE "characters" ("id" bigserial primary key, "name" character varying, "race" integer, "character_class" integer, "strength" integer, "dexterity" integer, "constitution" integer, "intelligence" integer, "wisdom" integer, "charisma" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (84.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (12.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200212024330)[0m
+  [1m[35m (9.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200212021319),
+(20200212022209);
+
+[0m
+  [1m[35m (86.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-16 21:39:48.427424"], ["updated_at", "2020-02-16 21:39:48.427424"]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "acd893fdeb9f6d5ca30baff09bfaeb29b2fa67ae"], ["created_at", "2020-02-16 21:39:48.440362"], ["updated_at", "2020-02-16 21:39:48.440362"]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "characters" CASCADE[0m
+  [1m[35m (107.2ms)[0m  [1m[35mCREATE TABLE "characters" ("id" bigserial primary key, "name" character varying, "race" integer, "character_class" integer, "strength" integer, "dexterity" integer, "constitution" integer, "intelligence" integer, "wisdom" integer, "charisma" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (84.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (8.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200212024330)[0m
+  [1m[35m (10.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200212021319),
+(20200212022209);
+
+[0m
+  [1m[35m (86.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-16 21:39:48.800849"], ["updated_at", "2020-02-16 21:39:48.800849"]]
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-02-16 21:39:48.819514"], ["key", "environment"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "acd893fdeb9f6d5ca30baff09bfaeb29b2fa67ae"], ["created_at", "2020-02-16 21:39:48.829099"], ["updated_at", "2020-02-16 21:39:48.829099"]]
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/characters" for ::1 at 2020-02-16 16:39:56 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.5ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 1.9ms | Allocations: 1896)
+
+
+Started POST "/characters" for ::1 at 2020-02-16 16:41:15 -0500
+Processing by CharactersController#create as HTML
+  Parameters: {"name"=>"Orange", "race"=>"3", "character_class"=>"2", "strength"=>15, "dexterity"=>12, "constitution"=>13, "intelligence"=>4, "wisdom"=>17, "charisma"=>12, "character"=>{"name"=>"Orange", "race"=>"3", "character_class"=>"2", "strength"=>15, "dexterity"=>12, "constitution"=>13, "intelligence"=>4, "wisdom"=>17, "charisma"=>12}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+  [1m[36mCharacter Create (0.9ms)[0m  [1m[32mINSERT INTO "characters" ("name", "race", "character_class", "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Orange"], ["race", 3], ["character_class", 2], ["strength", 15], ["dexterity", 12], ["constitution", 13], ["intelligence", 4], ["wisdom", 17], ["charisma", 12], ["created_at", "2020-02-16 21:41:15.903959"], ["updated_at", "2020-02-16 21:41:15.903959"]]
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+  [1m[35m (85.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+Completed 201 Created in 105ms (Views: 0.9ms | ActiveRecord: 89.4ms | Allocations: 8530)
+
+
+Started POST "/characters" for ::1 at 2020-02-16 16:41:27 -0500
+Processing by CharactersController#create as HTML
+  Parameters: {"name"=>"Petunia", "race"=>"5", "character_class"=>"0", "strength"=>18, "dexterity"=>14, "constitution"=>14, "intelligence"=>11, "wisdom"=>10, "charisma"=>13, "character"=>{"name"=>"Petunia", "race"=>"5", "character_class"=>"0", "strength"=>18, "dexterity"=>14, "constitution"=>14, "intelligence"=>11, "wisdom"=>10, "charisma"=>13}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+  [1m[36mCharacter Create (0.4ms)[0m  [1m[32mINSERT INTO "characters" ("name", "race", "character_class", "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Petunia"], ["race", 5], ["character_class", 0], ["strength", 18], ["dexterity", 14], ["constitution", 14], ["intelligence", 11], ["wisdom", 10], ["charisma", 13], ["created_at", "2020-02-16 21:41:27.538028"], ["updated_at", "2020-02-16 21:41:27.538028"]]
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+  [1m[35m (16.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+Completed 201 Created in 24ms (Views: 1.2ms | ActiveRecord: 17.3ms | Allocations: 2631)
+
+
+Started POST "/characters" for ::1 at 2020-02-16 16:41:37 -0500
+Processing by CharactersController#create as HTML
+  Parameters: {"name"=>"Forty", "race"=>"2", "character_class"=>"9", "strength"=>12, "dexterity"=>16, "constitution"=>17, "intelligence"=>16, "wisdom"=>14, "charisma"=>18, "character"=>{"name"=>"Forty", "race"=>"2", "character_class"=>"9", "strength"=>12, "dexterity"=>16, "constitution"=>17, "intelligence"=>16, "wisdom"=>14, "charisma"=>18}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+  [1m[36mCharacter Create (0.3ms)[0m  [1m[32mINSERT INTO "characters" ("name", "race", "character_class", "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Forty"], ["race", 2], ["character_class", 9], ["strength", 12], ["dexterity", 16], ["constitution", 17], ["intelligence", 16], ["wisdom", 14], ["charisma", 18], ["created_at", "2020-02-16 21:41:37.995153"], ["updated_at", "2020-02-16 21:41:37.995153"]]
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+  [1m[35m (10.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+Completed 201 Created in 15ms (Views: 0.5ms | ActiveRecord: 11.1ms | Allocations: 2631)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 16:41:40 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.8ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.8ms | Allocations: 1251)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 16:44:49 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms | Allocations: 1258)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 16:44:52 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 1242)
+
+
+Started POST "/characters" for ::1 at 2020-02-16 16:44:57 -0500
+Processing by CharactersController#create as HTML
+  Parameters: {"name"=>"Ugly", "race"=>0, "character_class"=>0, "strength"=>18, "dexterity"=>13, "constitution"=>17, "intelligence"=>9, "wisdom"=>10, "charisma"=>10, "character"=>{"name"=>"Ugly", "race"=>0, "character_class"=>0, "strength"=>18, "dexterity"=>13, "constitution"=>17, "intelligence"=>9, "wisdom"=>10, "charisma"=>10}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+  [1m[36mCharacter Create (0.3ms)[0m  [1m[32mINSERT INTO "characters" ("name", "race", "character_class", "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Ugly"], ["race", 0], ["character_class", 0], ["strength", 18], ["dexterity", 13], ["constitution", 17], ["intelligence", 9], ["wisdom", 10], ["charisma", 10], ["created_at", "2020-02-16 21:44:57.006875"], ["updated_at", "2020-02-16 21:44:57.006875"]]
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+  [1m[35m (56.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+Completed 201 Created in 62ms (Views: 0.4ms | ActiveRecord: 57.4ms | Allocations: 2610)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 16:45:02 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.4ms | Allocations: 1394)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 16:48:02 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.5ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.5ms | Allocations: 1393)
+
+
+Started POST "/characters" for ::1 at 2020-02-16 16:48:08 -0500
+Processing by CharactersController#create as HTML
+  Parameters: {"name"=>"Pork", "race"=>0, "character_class"=>0, "strength"=>16, "dexterity"=>12, "constitution"=>15, "intelligence"=>11, "wisdom"=>11, "charisma"=>11, "character"=>{"name"=>"Pork", "race"=>0, "character_class"=>0, "strength"=>16, "dexterity"=>12, "constitution"=>15, "intelligence"=>11, "wisdom"=>11, "charisma"=>11}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+  [1m[36mCharacter Create (1.1ms)[0m  [1m[32mINSERT INTO "characters" ("name", "race", "character_class", "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Pork"], ["race", 0], ["character_class", 0], ["strength", 16], ["dexterity", 12], ["constitution", 15], ["intelligence", 11], ["wisdom", 11], ["charisma", 11], ["created_at", "2020-02-16 21:48:08.589539"], ["updated_at", "2020-02-16 21:48:08.589539"]]
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+  [1m[35m (37.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+Completed 201 Created in 45ms (Views: 0.8ms | ActiveRecord: 38.7ms | Allocations: 2614)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 16:48:11 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.7ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.7ms | Allocations: 1543)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 16:54:24 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (1.5ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 1.5ms | Allocations: 1640)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 16:55:53 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.3ms | Allocations: 1543)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:02:01 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (2.0ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 11ms (Views: 7.4ms | ActiveRecord: 2.0ms | Allocations: 1639)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:02:50 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.5ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.5ms | Allocations: 1543)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:04:54 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.4ms | Allocations: 1543)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:13:37 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (1.1ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 1.1ms | Allocations: 1639)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:16:58 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.6ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.6ms | Allocations: 1543)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:17:19 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms | Allocations: 1543)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:17:41 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.3ms | Allocations: 1543)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:18:50 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.4ms | Allocations: 1543)
+
+
+Started POST "/characters" for ::1 at 2020-02-16 17:19:20 -0500
+Processing by CharactersController#create as HTML
+  Parameters: {"name"=>0, "race"=>0, "strength"=>0, "dexterity"=>0, "constitution"=>2, "intelligence"=>0, "wisdom"=>0, "charisma"=>0, "character"=>{"name"=>0, "race"=>0, "strength"=>0, "dexterity"=>0, "constitution"=>2, "intelligence"=>0, "wisdom"=>0, "charisma"=>0}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+  [1m[36mCharacter Create (0.6ms)[0m  [1m[32mINSERT INTO "characters" ("name", "race", "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "0"], ["race", 0], ["strength", 0], ["dexterity", 0], ["constitution", 2], ["intelligence", 0], ["wisdom", 0], ["charisma", 0], ["created_at", "2020-02-16 22:19:20.394064"], ["updated_at", "2020-02-16 22:19:20.394064"]]
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+  [1m[35m (31.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+Completed 201 Created in 40ms (Views: 1.3ms | ActiveRecord: 32.3ms | Allocations: 2586)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:19:56 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.6ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.6ms | Allocations: 1694)
+
+
+Started POST "/characters" for ::1 at 2020-02-16 17:20:03 -0500
+Processing by CharactersController#create as HTML
+  Parameters: {"name"=>"Jimmy", "race"=>0, "character_class"=>0, "strength"=>15, "dexterity"=>11, "constitution"=>14, "intelligence"=>8, "wisdom"=>9, "charisma"=>10, "character"=>{"name"=>"Jimmy", "race"=>0, "character_class"=>0, "strength"=>15, "dexterity"=>11, "constitution"=>14, "intelligence"=>8, "wisdom"=>9, "charisma"=>10}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+  [1m[36mCharacter Create (0.3ms)[0m  [1m[32mINSERT INTO "characters" ("name", "race", "character_class", "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Jimmy"], ["race", 0], ["character_class", 0], ["strength", 15], ["dexterity", 11], ["constitution", 14], ["intelligence", 8], ["wisdom", 9], ["charisma", 10], ["created_at", "2020-02-16 22:20:03.175347"], ["updated_at", "2020-02-16 22:20:03.175347"]]
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+  [1m[35m (32.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+Completed 201 Created in 38ms (Views: 0.5ms | ActiveRecord: 33.0ms | Allocations: 2615)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:20:09 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.6ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.6ms | Allocations: 1845)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:20:10 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (1.0ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 1.0ms | Allocations: 1845)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:20:50 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.2ms | Allocations: 1846)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:21:35 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (1.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 1.2ms | Allocations: 1845)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:21:45 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.5ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.5ms | Allocations: 1845)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:21:54 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.2ms | Allocations: 1845)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:25:07 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.3ms | Allocations: 1845)
+
+
+Started DELETE "/characters/5" for ::1 at 2020-02-16 17:25:12 -0500
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:50:in `set_character'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+  [1m[36mCharacter Destroy (0.3ms)[0m  [1m[31mDELETE FROM "characters" WHERE "characters"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+  [1m[35m (17.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+Completed 200 OK in 35ms (Views: 1.0ms | ActiveRecord: 18.7ms | Allocations: 3862)
+
+
+Started DELETE "/characters/6" for ::1 at 2020-02-16 17:25:18 -0500
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:50:in `set_character'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+  [1m[36mCharacter Destroy (0.3ms)[0m  [1m[31mDELETE FROM "characters" WHERE "characters"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+  [1m[35m (19.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+Completed 200 OK in 23ms (Views: 0.4ms | ActiveRecord: 19.7ms | Allocations: 2353)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:25:21 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.2ms | Allocations: 1543)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:25:21 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 1543)
+
+
+Started DELETE "/characters/7" for ::1 at 2020-02-16 17:25:26 -0500
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"7"}
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:50:in `set_character'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+  [1m[36mCharacter Destroy (0.3ms)[0m  [1m[31mDELETE FROM "characters" WHERE "characters"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+  [1m[35m (18.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+Completed 200 OK in 24ms (Views: 0.4ms | ActiveRecord: 19.3ms | Allocations: 2353)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:25:27 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 1392)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:25:28 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 1392)
+
+
+Started DELETE "/characters/1" for ::1 at 2020-02-16 17:25:32 -0500
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:50:in `set_character'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+  [1m[36mCharacter Destroy (0.3ms)[0m  [1m[31mDELETE FROM "characters" WHERE "characters"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+  [1m[35m (17.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+Completed 200 OK in 23ms (Views: 0.4ms | ActiveRecord: 18.6ms | Allocations: 2352)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:25:33 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 1240)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:25:34 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 1240)
+
+
+Started DELETE "/characters/4" for ::1 at 2020-02-16 17:25:36 -0500
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:50:in `set_character'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+  [1m[36mCharacter Destroy (0.4ms)[0m  [1m[31mDELETE FROM "characters" WHERE "characters"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 5.5ms | Allocations: 2352)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:25:37 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 1089)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:25:37 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 1089)
+
+
+Started DELETE "/characters/3" for ::1 at 2020-02-16 17:25:38 -0500
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:50:in `set_character'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+  [1m[36mCharacter Destroy (0.5ms)[0m  [1m[31mDELETE FROM "characters" WHERE "characters"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+  [1m[35m (16.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+Completed 200 OK in 23ms (Views: 0.6ms | ActiveRecord: 17.7ms | Allocations: 2352)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:25:40 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 938)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:25:40 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 938)
+
+
+Started DELETE "/characters/2" for ::1 at 2020-02-16 17:25:41 -0500
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:50:in `set_character'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+  [1m[36mCharacter Destroy (0.5ms)[0m  [1m[31mDELETE FROM "characters" WHERE "characters"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:44:in `destroy'
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 6.5ms | Allocations: 2353)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:25:42 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 787)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:27:38 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 787)
+
+
+Started POST "/characters" for ::1 at 2020-02-16 17:27:45 -0500
+Processing by CharactersController#create as HTML
+  Parameters: {"name"=>"Wonkly", "race"=>"3", "character_class"=>"6", "strength"=>18, "dexterity"=>13, "constitution"=>14, "intelligence"=>11, "wisdom"=>12, "charisma"=>15, "character"=>{"name"=>"Wonkly", "race"=>"3", "character_class"=>"6", "strength"=>18, "dexterity"=>13, "constitution"=>14, "intelligence"=>11, "wisdom"=>12, "charisma"=>15}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+  [1m[36mCharacter Create (0.5ms)[0m  [1m[32mINSERT INTO "characters" ("name", "race", "character_class", "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Wonkly"], ["race", 3], ["character_class", 6], ["strength", 18], ["dexterity", 13], ["constitution", 14], ["intelligence", 11], ["wisdom", 12], ["charisma", 15], ["created_at", "2020-02-16 22:27:45.708829"], ["updated_at", "2020-02-16 22:27:45.708829"]]
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+  [1m[35m (30.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:22:in `create'
+Completed 201 Created in 38ms (Views: 0.5ms | ActiveRecord: 31.4ms | Allocations: 2610)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:27:50 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 938)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:27:50 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 938)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:28:03 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms | Allocations: 939)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:28:03 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms | Allocations: 938)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:28:12 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 939)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:28:12 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 938)
+
+
+Started GET "/characters" for ::1 at 2020-02-16 17:28:18 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 939)
+
+
