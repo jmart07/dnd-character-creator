@@ -115,7 +115,7 @@ class CreateUpdateCharacter extends Component {
             </select>
           </>
           }
-          <input type="submit" value="Create New Character" />
+          <input type="submit" value={ this.props.editMode ? "Save Name" : "Create New Character"} />
         </form>
       </div>
     );
