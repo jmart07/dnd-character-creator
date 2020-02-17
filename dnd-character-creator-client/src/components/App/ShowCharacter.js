@@ -15,7 +15,7 @@ class ShowCharacter extends Component {
         <li>Intelligence: {this.props.character.getIntelligence()}</li>
         <li>Wisdom: {this.props.character.getWisdom()}</li>
         <li>Charisma: {this.props.character.getCharisma()}</li>
-        <li className="edit" onClick={() => this.props.toggleEdit(this.props.character.id)}>EDIT</li>
+        <li className="edit" onClick={() => this.props.toggleEdit(this.props.character.id)}>EDIT NAME</li>
         <li className="delete" onClick={() => this.props.deleteCharacter(this.props.character.id)}>DELETE</li>
       </div>
     )

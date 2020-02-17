@@ -1,5 +1,6 @@
 class CharactersController < ApplicationController
-
+  require 'faker'
+  
   # GET /characters
   def index
     p "Character index route accessed"
@@ -18,6 +19,7 @@ class CharactersController < ApplicationController
   def create
     p "Character create route accessed"
     @character = Character.new(character_params)
+    @character.name = Faker::Name.name
 
     if @character.save
       render json: @character, status: :created, location: @character

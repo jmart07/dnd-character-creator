@@ -38,9 +38,7 @@ class CreateUpdateCharacter extends Component {
         return character.json();
       })
       .then(() => {
-        this.setState({
-          name: ""
-        });
+        return;
       });
   }
 
@@ -79,14 +77,14 @@ class CreateUpdateCharacter extends Component {
   render() {
     return(
       <div className='create'>
-        <form onSubmit={ this.props.editMode ? this.handleUpdate : this.handleCreate}>
-          {this.props.editMode &&
+        <form onSubmit={ this.props.editMode ? this.handleUpdate.bind(this) : this.handleCreate.bind(this)}>
+          { this.props.editMode &&
           <>
             <label>Name:</label>
             <input type="text" id="name" value={this.state.name} onChange={this.handleChange} />
           </>
           }
-          {!this.props.editMode &&
+          { !this.props.editMode &&
           <>
             <label>Race:</label>
             <select id="race" value={this.state.race} onChange={this.handleChange}>
