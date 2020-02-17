@@ -2,15 +2,6 @@ import React, { Component } from "react";
 // import {Character} from "./character.js";
 
 class ShowCharacter extends Component {
-  deleteCharacter = (id) => {
-    console.log(`Deleting character with id ${id}`);
-    fetch(`http://localhost:3000/characters/${id}`, {
-      method: "DELETE"
-    }).then((deleted) => {
-      console.log(deleted);
-    })
-
-  }
 
   render() {
     return(
@@ -24,7 +15,8 @@ class ShowCharacter extends Component {
         <li>Intelligence: {this.props.character.getIntelligence()}</li>
         <li>Wisdom: {this.props.character.getWisdom()}</li>
         <li>Charisma: {this.props.character.getCharisma()}</li>
-        <li className="delete" onClick={() => this.deleteCharacter(this.props.character.id)}>DELETE</li>
+        <li className="edit" onClick={() => this.props.toggleEdit(this.props.character.id)}>EDIT</li>
+        <li className="delete" onClick={() => this.props.deleteCharacter(this.props.character.id)}>DELETE</li>
       </div>
     )
   }

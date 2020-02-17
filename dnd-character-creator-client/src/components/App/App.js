@@ -6,7 +6,8 @@ import CreateUpdateCharacter from './CreateUpdateCharacter.js';
 class App extends Component {
   state = {
     characters: [],
-    editMode: false
+    editMode: false,
+    editId: 0
   }
 
   componentDidMount() {
@@ -50,13 +51,30 @@ class App extends Component {
     this.setState({characters: data});
   }
 
+  toggleEdit = (id) => {
+    console.log('editing');
+    this.setState({
+      editMode: !this.state.editMode,
+      editId: id
+    });
+  }
+
+  deleteCharacter = (id) => {
+    console.log(`Deleting character with id ${id}`);
+    fetch(`http://localhost:3000/characters/${id}`, {
+      method: "DELETE"
+    }).then((deleted) => {
+      console.log(deleted);
+    });
+  }
+
   render() {
     return(
       <div className="app">
-        <CreateUpdateCharacter editMode={this.state.editMode}/>
+        <CreateUpdateCharacter characters={this.state.characters} editMode={this.state.editMode} editId={this.state.editId} />
         <div className="characters">
           {this.state.characters.map((character, i) => {
-            return <ShowCharacter key={i} character={character} />
+            return <ShowCharacter key={i} character={character} deleteCharacter={this.deleteCharacter}  toggleEdit={this.toggleEdit} />
           })}
         </div>
       </div>
